@@ -7,30 +7,34 @@ const count = ref(0)
 </script>
 
 <template>
-  <h1>{{ msg }}</h1>
+ <nav>
+  <img src="images/logo.svg" alt="logo">
+  <ul>
+  Features
+  Company
+  Careers
+  About
 
-  <p>
-    Recommended IDE setup:
-    <a href="https://code.visualstudio.com/" target="_blank">VS Code</a>
-    +
-    <a href="https://github.com/johnsoncodehk/volar" target="_blank">Volar</a>
-  </p>
+  Login
+  Register
+</ul>
+</nav>
+<main>
+  <h1>Make remote work</h1>
 
-  <p>See <code>README.md</code> for more information.</p>
+  <p>Get your team in sync, no matter your location. Streamline processes, 
+  create team rituals, and watch productivity soar.</p>
 
-  <p>
-    <a href="https://vitejs.dev/guide/features.html" target="_blank">
-      Vite Docs
-    </a>
-    |
-    <a href="https://v3.vuejs.org/" target="_blank">Vue 3 Docs</a>
-  </p>
-
-  <button type="button" @click="count++">count is: {{ count }}</button>
-  <p>
-    Edit
-    <code>components/HelloWorld.vue</code> to test hot module replacement.
-  </p>
+  <button>Learn more</button>
+  <img src="images/client-databiz.svg" alt="data biz">
+  <img src="images/client-audiophile.svg" alt="audio phile">
+  <img src="images/client-meet.svg" alt="meet">
+  <img src="images/client-maker.svg" alt="maker">
+  <picture>
+    <source media="(min-width: 45em)" srcset="images/image-hero-desktop.png">
+  <img src="images/image-hero-mobile.png" alt="Remote work">
+</picture>
+</main>
 </template>
 
 <style scoped>
