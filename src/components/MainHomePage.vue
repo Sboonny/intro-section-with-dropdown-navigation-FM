@@ -32,11 +32,35 @@
 
  main {
    margin-inline: clamp(1em, 4vw, 4em);
+   font-family: 'Epilogue', sans-serif;
+   font-size: 18px;
  }
 
- .main--content {
-   grid-area: HomeMain
+ h1 {
+   font-size: 4em;
+   font-weight: 700;
  }
+
+ p {
+   color: hsl(var(--gray));
+   font-weight: 500;
+ }
+
+  button {
+  background-color: hsl(var(--black));
+  color: hsl(var(--white));
+  border: 0;
+  border-radius: 5px;
+  font-weight: 700;
+  padding: .5em .9em;
+}
+
+ .main--content {
+   grid-area: HomeMain;
+   color: hsl(var(--black));
+   font-style: inherit;
+ }
+ 
  .home-img {
    min-width: 300px;
    width: 30vw;
@@ -47,6 +71,9 @@
 @media (min-width: 45em) {
   .grid {
    grid-template-columns: 1fr 1fr;
+   grid-template-areas: 'HomeMain'
+                        'HomeImag';
+   }
   }
-}
+
 </style>
