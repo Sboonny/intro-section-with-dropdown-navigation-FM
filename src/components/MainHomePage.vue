@@ -1,6 +1,6 @@
 <template>
  <main class="grid">
-  <div>
+  <div class="main--content">
   <h1>Make remote work</h1>
 
   <p>Get your team in sync, no matter your location. Streamline processes, 
@@ -24,16 +24,24 @@
  .grid {
    display: grid;
    gap: var(--gap, 2em);
+   grid-template-rows: min-content 1fr;
+   grid-template-areas: 
+           'HomeImage'
+           'HomeMain';
  }
 
  main {
    margin-inline: clamp(1em, 4vw, 4em);
  }
 
+ .main--content {
+   grid-area: HomeMain
+ }
  .home-img {
    min-width: 300px;
    width: 30vw;
    max-width: 700px;
+   grid-area: HomeImage;
  }
 
 @media (min-width: 45em) {
