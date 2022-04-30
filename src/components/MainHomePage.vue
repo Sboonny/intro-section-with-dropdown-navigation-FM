@@ -7,11 +7,12 @@
   create team rituals, and watch productivity soar.</p>
 
   <button>Learn more</button>
-  
-  <img src="src/assets/client-databiz.svg" alt="data biz">
-  <img src="src/assets/client-audiophile.svg" alt="audio phile">
-  <img src="src/assets/client-meet.svg" alt="meet">
-  <img src="src/assets/client-maker.svg" alt="maker">
+   <div class="img--container">
+    <img src="src/assets/client-databiz.svg" alt="data biz">
+    <img src="src/assets/client-audiophile.svg" alt="audio phile">
+    <img src="src/assets/client-meet.svg" alt="meet">
+    <img src="src/assets/client-maker.svg" alt="maker">
+   </div>
   </div>
   <picture >
     <source class="home-img" media="(min-width: 45em)" srcset="src/assets/image-hero-desktop.png">
@@ -31,9 +32,11 @@
  }
 
  main {
-   margin-inline: clamp(1em, 4vw, 4em);
    font-family: 'Epilogue', sans-serif;
    font-size: 18px;
+   justify-items: end;
+   align-items: center;
+   margin: 1em 3em;
  }
 
  h1 {
@@ -57,10 +60,24 @@
 
  .main--content {
    grid-area: HomeMain;
+   display: grid;
    color: hsl(var(--black));
    font-style: inherit;
+   gap: var(--gap, 2em);
  }
  
+ .img--container {
+   display: flex;
+   gap: var(--gap, 2em);
+ }
+
+ .img--container img {
+   min-width: 100px;
+   width: 5vw;
+   max-width: 150px;
+   height: 3vw;
+ }
+
  .home-img {
    min-width: 300px;
    width: 30vw;
@@ -74,6 +91,7 @@
    grid-template-areas: 'HomeMain'
                         'HomeImag';
    }
+
   }
 
 </style>
