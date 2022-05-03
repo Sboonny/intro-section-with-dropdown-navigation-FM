@@ -1,7 +1,7 @@
 <template>
   <nav>
     <ul class="flex" role="list">
-      <img src="src/assets/logo.svg" alt="logo" />
+      <img src="src/assets/logo.svg" alt="logo" class="logo" />
       <button>
         <li>
           Features<svg width="10" height="6" xmlns="http://www.w3.org/2000/svg">
@@ -40,27 +40,46 @@
       </button>
     </ul>
   </nav>
-  <dialog>
+  <div class="dropbox"  id="dropbox" >
     <ul class="flex">
-      <li>Todo List</li>
-      <li>Calendar</li>
-      <li>Reminders</li>
-      <li>Planning</li>
+      <li :key="i" v-for="(feature, i) in features" >{{feature}}</li>
     </ul>
-  </dialog>
-  <dialog>
+  </div>
+  <div class="dropbox" id="dropbox" >
+    
     <ul class="flex">
       <li>History</li>
       <li>Our Team</li>
       <li>Blog</li>
     </ul>
-  </dialog>
+  </div>
 </template>
 
+<script lang="ts">
+export default {
+  name: "Dropbox",
+  props: {
+    dropbox: Boolean,
+    features: Array
+  },
+  data() {
+    dropbox: false;
+    features: ["Todo List", "Calendar", "Reminders", "Planning"]
+  }
+}
+</script>
+
 <style scoped>
+
+.logo {
+  max-height: 50px;
+  height: 3vh;
+  min-height: 30px;
+}
 .flex {
   display: flex;
   gap: var(--gap, 2em);
+  align-items: center;
   flex-direction: column;
 }
 
@@ -90,9 +109,6 @@ li:hover,
 li:focus {
   cursor: pointer;
   color: hsl(var(--black));
-}
-
-.login-button {
 }
 
 .register-button {
