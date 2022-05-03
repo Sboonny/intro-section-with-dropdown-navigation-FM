@@ -4,6 +4,14 @@
   --black: 0 0% 8%;
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --black: 0 0% 98%;
+    --gray: 0 0% 41%;
+    --white: 0 0% 8%;
+  }
+}
+
 
 /* Box sizing rules */
 *,
@@ -42,6 +50,7 @@ body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
+  overflow: hidden;
 }
 
 /* A elements that don't have a class get default styles */
