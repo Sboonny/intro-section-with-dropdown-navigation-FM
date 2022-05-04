@@ -40,37 +40,39 @@
       </button>
     </ul>
   </nav>
-  <div class="dropbox"  id="dropbox" >
+  <div class="dropbox" id="dropbox">
     <ul class="flex">
-      <li :key="i" v-for="(feature, i) in features" >{{feature}}</li>
+      <li :key="i" v-for="(feature, i) in features">{{ feature }}</li>
     </ul>
   </div>
-  <div class="dropbox" id="dropbox" >
-    
+  <div class="dropbox" id="dropbox">
     <ul class="flex">
-      <li>History</li>
-      <li>Our Team</li>
-      <li>Blog</li>
+      <li :key="i" v-for="(product, i) in company">{{ product }}</li>
     </ul>
   </div>
 </template>
 
 <script lang="ts">
-export default {
+import { defineComponent } from "vue";
+
+export default defineComponent({
   name: "Dropbox",
-  props: {
-    dropbox: Boolean,
-    features: Array
-  },
   data() {
-    dropbox: false;
-    features: ["Todo List", "Calendar", "Reminders", "Planning"]
-  }
-}
+    return {
+      dropbox: false as boolean,
+      features: ["Todo List", "Calendar", "Reminders", "Planning"] as Array<String>,
+      company: ["History", "Our Team", "Blog"] as Array<String>,
+    };
+  },
+
+  mounted() {
+    this.dropbox;
+    this.features;
+  },
+});
 </script>
 
 <style scoped>
-
 .logo {
   max-height: 50px;
   height: 3vh;
@@ -82,7 +84,6 @@ export default {
   align-items: center;
   flex-direction: column;
 }
-
 
 button {
   border: 0;
