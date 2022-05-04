@@ -107,4 +107,4 @@ Use this section to outline areas that you want to continue focusing on in futur
 
 ## Acknowledgments
 
-[martinelias](https://github.com/martinelias1312) seeing him use `summery` and `details`tags saved me a big hassle 
+[Martin Eliáš](https://github.com/martinelias1312) seeing him use `summery` and `details`tags saved me a big hassle 
