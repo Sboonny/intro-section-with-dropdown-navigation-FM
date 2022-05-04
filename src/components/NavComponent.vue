@@ -2,30 +2,27 @@
   <nav>
     <ul class="flex" role="list">
       <img src="src/assets/logo.svg" alt="logo" class="logo" />
-        <li>
-         <button @click="showFeaturesDropbox()">
-          Features<svg width="10" height="6" xmlns="http://www.w3.org/2000/svg">
-            <path
-              stroke="#686868"
-              stroke-width="1.5"
-              fill="none"
-              d="m1 1 4 4 4-4"
-            />
-          </svg>
-      </button>
-        </li>
-        <li>
-      <button @click="showCompanyDropbox()">
-          Company<svg width="10" height="6" xmlns="http://www.w3.org/2000/svg">
-            <path
-              stroke="#686868"
-              stroke-width="1.5"
-              fill="none"
-              d="m1 1 4 4 4-4"
-            />
-          </svg>
-      </button>
-        </li>
+      <li>
+        <details>
+          <summary>Features</summary>
+          <div class="card">
+            <li :key="i" v-for="(feature, i) in features">
+              <v-img :src="import(`../assests/${icons[i].icon}`)" />
+              {{ feature }}
+            </li>
+          </div>
+        </details>
+      </li>
+      <li>
+        <details>
+          <summary>Company</summary>
+          <div class="card">
+            <li :key="i" v-for="(product, i) in company">
+              {{ product }}
+            </li>
+          </div>
+        </details>
+      </li>
       <button>
         <li>Careers</li>
       </button>
@@ -41,14 +38,10 @@
     </ul>
   </nav>
   <div class="dropbox" id="dropbox">
-    <ul class="flex">
-      <li v-show="!featureDropbox" :key="i" v-for="(feature, i) in features">{{ feature }}</li>
-    </ul>
+    <ul class="flex"></ul>
   </div>
   <div class="dropbox" id="dropbox">
-    <ul class="flex">
-      <li v-show="!companyDropbox" :key="i" v-for="(product, i) in company">{{ product }}</li>
-    </ul>
+    <ul class="flex"></ul>
   </div>
 </template>
 
@@ -59,26 +52,33 @@ export default defineComponent({
   name: "Dropbox",
   data() {
     return {
-      featureDropbox: true as boolean,
-      companyDropbox: true as boolean,
-      features: ["Todo List", "Calendar", "Reminders", "Planning"] as Array<String>,
+      features: [
+        "Todo List",
+        "Calendar",
+        "Reminders",
+        "Planning",
+      ] as Array<String>,
+      icons: [
+        {
+          icon: "icon-todo.svg",
+        },
+        {
+          icon: "icon-calendar.svg",
+        },
+        {
+          icon: "icon-reminders.svg",
+        },
+        {
+          icon: "icon-planning.svg",
+        },
+      ] as any,
       company: ["History", "Our Team", "Blog"] as Array<String>,
     };
   },
-  methods: {
-    showFeaturesDropbox() {
-      this.featureDropbox = !this.featureDropbox
-    },
-    showCompanyDropbox() {
-      this.companyDropbox = !this.companyDropbox
-    }
-  },
   mounted() {
-    this.featureDropbox;
-    this.companyDropbox
-    this.company
+    this.company;
     this.features;
-    this.showFeaturesDropbox()
+    this.icons;
   },
 });
 </script>
@@ -92,8 +92,6 @@ export default defineComponent({
 .flex {
   display: flex;
   gap: var(--gap, 2em);
-  align-items: center;
-  flex-direction: column;
 }
 
 button {
@@ -138,6 +136,10 @@ li:focus {
     flex-direction: row;
   }
 
+  .card {
+    position: absolute;
+  }
+
   button {
     padding: 0.5em 1em;
   }
@@ -146,6 +148,10 @@ li:focus {
     padding: 1em 2em;
   }
 
+  ul {
+    align-items: center;
+    flex-direction: column;
+  }
   .login-button {
     margin-left: auto;
   }
