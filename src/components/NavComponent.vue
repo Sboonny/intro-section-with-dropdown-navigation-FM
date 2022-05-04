@@ -2,8 +2,8 @@
   <nav>
     <ul class="flex" role="list">
       <img src="src/assets/logo.svg" alt="logo" class="logo" />
-      <button>
         <li>
+         <button @click="showFeaturesDropbox()">
           Features<svg width="10" height="6" xmlns="http://www.w3.org/2000/svg">
             <path
               stroke="#686868"
@@ -12,10 +12,10 @@
               d="m1 1 4 4 4-4"
             />
           </svg>
-        </li>
       </button>
-      <button>
+        </li>
         <li>
+      <button @click="showCompanyDropbox()">
           Company<svg width="10" height="6" xmlns="http://www.w3.org/2000/svg">
             <path
               stroke="#686868"
@@ -24,8 +24,8 @@
               d="m1 1 4 4 4-4"
             />
           </svg>
-        </li>
       </button>
+        </li>
       <button>
         <li>Careers</li>
       </button>
@@ -42,12 +42,12 @@
   </nav>
   <div class="dropbox" id="dropbox">
     <ul class="flex">
-      <li :key="i" v-for="(feature, i) in features">{{ feature }}</li>
+      <li v-show="!featureDropbox" :key="i" v-for="(feature, i) in features">{{ feature }}</li>
     </ul>
   </div>
   <div class="dropbox" id="dropbox">
     <ul class="flex">
-      <li :key="i" v-for="(product, i) in company">{{ product }}</li>
+      <li v-show="!companyDropbox" :key="i" v-for="(product, i) in company">{{ product }}</li>
     </ul>
   </div>
 </template>
@@ -59,15 +59,26 @@ export default defineComponent({
   name: "Dropbox",
   data() {
     return {
-      dropbox: false as boolean,
+      featureDropbox: true as boolean,
+      companyDropbox: true as boolean,
       features: ["Todo List", "Calendar", "Reminders", "Planning"] as Array<String>,
       company: ["History", "Our Team", "Blog"] as Array<String>,
     };
   },
-
+  methods: {
+    showFeaturesDropbox() {
+      this.featureDropbox = !this.featureDropbox
+    },
+    showCompanyDropbox() {
+      this.companyDropbox = !this.companyDropbox
+    }
+  },
   mounted() {
-    this.dropbox;
+    this.featureDropbox;
+    this.companyDropbox
+    this.company
     this.features;
+    this.showFeaturesDropbox()
   },
 });
 </script>
