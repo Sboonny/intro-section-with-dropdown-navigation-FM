@@ -9,7 +9,9 @@
           <div class="card">
             <ol>
               <li :key="i" v-for="(feature, i) in features">
+              <!-- here is the bug -->
                 <v-img :src="import(`../assests/${icons[i].icon}`)" />
+              <!-- -->
                 {{ feature }}
               </li>
             </ol>
